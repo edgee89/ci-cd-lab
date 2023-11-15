@@ -8,6 +8,14 @@ on:
 
 jobs:
   test_build_deploy:
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+  
     runs-on: ubuntu-latest
     steps:
       - name: Get code
